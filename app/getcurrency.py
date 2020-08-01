@@ -1,3 +1,5 @@
+from os.path import dirname
+sys.path.append(dirname(__file__))
 import csv
 import logging
 import os
