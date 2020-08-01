@@ -34,7 +34,7 @@ class CurrencyDownloader():
     def downloadData(self):
         response = None
         logging.info("Data will be downloaded into {}".format(FILE_SAVE_PATH))
-        file_exists = os.path.isfile(fpath)
+        file_exists = os.path.isfile(FILE_SAVE_PATH)
 
         # Exception handling to gracefuly end the program incase any error occur with the appropriate error message 
         try:
@@ -46,7 +46,7 @@ class CurrencyDownloader():
 
         if response is not None:
             try:
-                with open(fpath, 'a') as out:
+                with open(FILE_SAVE_PATH, 'a') as out:
                     data = response
 
                     fieldnames = ['Base', 'Date', 'CAD', 'HKD', 'ISK', 'PHP', 'DKK', 'HUF', 'CZK', 'GBP', 'RON', 'SEK',
