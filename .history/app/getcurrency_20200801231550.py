@@ -4,6 +4,12 @@ import os
 import requests
 import urllib3
 import datetime as dt
+'''from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime, timedelta
+from airflow.models import Variable
+from google.cloud import storage
+from airflow.contrib.operators import dataproc_operator'''
 
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
@@ -28,7 +34,7 @@ class CurrencyDownloader():
     # Download the data to CSV file
     def downloadData(self):
         response = None
-        fpath = '../data/downloads/sample.csv'
+        fpath = './data/downloads/sample.csv'
         logging.info("Data will be downloaded into {}".format(fpath))
         file_exists = os.path.isfile(fpath)
 

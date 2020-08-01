@@ -28,7 +28,7 @@ class CurrencyDownloader():
     # Download the data to CSV file
     def downloadData(self):
         response = None
-        fpath = '../data/downloads/sample.csv'
+        fpath = './data/downloads/sample.csv'
         logging.info("Data will be downloaded into {}".format(fpath))
         file_exists = os.path.isfile(fpath)
 

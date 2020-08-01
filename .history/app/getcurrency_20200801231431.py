@@ -4,9 +4,38 @@ import os
 import requests
 import urllib3
 import datetime as dt
+'''from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime, timedelta
+from airflow.models import Variable
+from google.cloud import storage
+from airflow.contrib.operators import dataproc_operator'''
 
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
+
+# Defining a DAG to schedule the same every one hour
+# with DAG(dag_id = "curency_api_dag") as dag: 
+'''PIPELINE_ID = 1
+
+start_date = datetime(2020, 7, 31);
+
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': start_date,
+    'email': ['sidgk248@gmail.com'],
+    'email_on_failure': True,
+    'email_on_retry': False,
+    'retries': 0,
+    'retry_delay': timedelta(minutes=5)
+}
+
+dag = airflow.DAG(
+    dag_id='currency_api_fetch_dag',
+    schedule_interval="0 23 * * *",
+    default_args=default_args)
+'''
 # Class to read and load the currency data into CSV file
 class CurrencyDownloader():
     def __init__(self,url):
@@ -28,7 +57,7 @@ class CurrencyDownloader():
     # Download the data to CSV file
     def downloadData(self):
         response = None
-        fpath = '../data/downloads/sample.csv'
+        fpath = './data/downloads/sample.csv'
         logging.info("Data will be downloaded into {}".format(fpath))
         file_exists = os.path.isfile(fpath)
 
