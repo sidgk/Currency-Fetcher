@@ -59,10 +59,10 @@ class CurrencyDownloader():
 
                     if not file_exists:
                         writer.writeheader()
-                    logging.info("{} file exists {}".format(fpath,file_exists))
+                    logging.info("{} file exists {}".format(FILE_SAVE_PATH,file_exists))
                     row = data['rates']
                     row.update(Base=data['base'], Date=data['date'])
-                    logging.info("Latest currency {} to be inserted into file {}".format(row,fpath))
+                    logging.info("Latest currency {} to be inserted into file {}".format(row,FILE_SAVE_PATH))
                     writer.writerow(row)
                     logging.info("Currency fetch success.")
             except FileNotFoundError as err:
