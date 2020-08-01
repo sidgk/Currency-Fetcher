@@ -1,17 +1,19 @@
+import sys
+from os.path import dirname
+sys.path.append(dirname(__file__))
 import logging
 from configparser import ConfigParser
 from app.getcurrency import CurrencyDownloader
-'''from airflow import DAG
+from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
-from datetime import datetime, timedelta'''
+from datetime import datetime, timedelta
 
 
 config = ConfigParser()
-config.read('./config/config.ini')
-url = config.get('URLS', 'URL')
-
-'''PIPELINE_ID = 1
+# config.read('./config/config.ini')
+url = "https://api.exchangeratesapi.io/latest?base=USD"
+PIPELINE_ID = 1
 
 start_date = datetime(2020, 7, 31)
 
@@ -26,10 +28,10 @@ default_args = {
     'retry_delay': timedelta(minutes=5)
 }
 
-dag = airflow.DAG(
+dag = DAG(
     dag_id='currency_api_fetch_dag',
     schedule_interval="0 23 * * *",
-    default_args=default_args)'''
+    default_args=default_args)
 
 
 def downloadfile():
@@ -42,7 +44,7 @@ def main():
     downloadfile()
     logging.info('Application Finished.')
 
-'''convert_currency =  PythonOperator(
+convert_currency =  PythonOperator(
     task_id='load_currency_to_CSV',
     python_callable=downloadfile,
     dag=dag)
@@ -50,6 +52,7 @@ def main():
 t_first_task = DummyOperator(
     task_id='first_task',
     dag=dag
-)'''
-if __name__ == "__main__":
-    main()
+)
+t_first_task.set_downstream(convert_currency)
+#if __name__ == "__main__":
+#    main()
