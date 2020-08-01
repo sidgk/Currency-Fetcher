@@ -8,6 +8,8 @@ import requests
 import urllib3
 import datetime as dt
 
+FILE_SAVE_PATH = "results.csv"
+
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 # Class to read and load the currency data into CSV file
@@ -31,8 +33,7 @@ class CurrencyDownloader():
     # Download the data to CSV file
     def downloadData(self):
         response = None
-        fpath = '../data/downloads/sample.csv'
-        logging.info("Data will be downloaded into {}".format(fpath))
+        logging.info("Data will be downloaded into {}".format(FILE_SAVE_PATH))
         file_exists = os.path.isfile(fpath)
 
         # Exception handling to gracefuly end the program incase any error occur with the appropriate error message 
