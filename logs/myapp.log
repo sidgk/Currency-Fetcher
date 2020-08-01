@@ -1,0 +1,10 @@
+INFO 2020-08-01 17:48:57,231 :: Starting application...
+INFO 2020-08-01 17:48:57,401 :: URL https://api.exchangeratesapi.io/latest?base=USD to download data from.
+INFO 2020-08-01 17:48:57,401 :: Checking status of given URL ...
+INFO 2020-08-01 17:48:57,401 :: Success! 200
+INFO 2020-08-01 17:48:57,401 :: Data will be downloaded into ./data/downloads/sample.csv
+INFO 2020-08-01 17:48:57,498 :: Columns- ['Base', 'Date', 'CAD', 'HKD', 'ISK', 'PHP', 'DKK', 'HUF', 'CZK', 'GBP', 'RON', 'SEK', 'IDR', 'INR', 'BRL', 'RUB', 'HRK', 'JPY', 'THB', 'CHF', 'EUR', 'MYR', 'BGN', 'TRY', 'CNY', 'NOK', 'NZD', 'ZAR', 'USD', 'MXN', 'SGD', 'AUD', 'ILS', 'KRW', 'PLN']
+INFO 2020-08-01 17:48:57,499 :: ./data/downloads/sample.csv file exists True
+INFO 2020-08-01 17:48:57,499 :: Latest currency {'CAD': 1.3418298447, 'HKD': 7.7502532073, 'ISK': 135.043889264, 'PHP': 49.0580688724, 'DKK': 6.2830857529, 'HUF': 291.1461850101, 'CZK': 22.0923362593, 'GBP': 0.76006921, 'RON': 4.0779034436, 'SEK': 8.6795239703, 'IDR': 14655.6380823768, 'INR': 74.8105165429, 'BRL': 5.1670324105, 'RUB': 74.0124915598, 'HRK': 6.3145678596, 'JPY': 104.9206617151, 'THB': 31.1850101283, 'CHF': 0.9089297772, 'EUR': 0.8440243079, 'MYR': 4.2395340986, 'BGN': 1.6507427414, 'TRY': 6.9712187711, 'CNY': 6.9747636732, 'NOK': 9.0583220797, 'NZD': 1.4999155976, 'ZAR': 16.9615124916, 'USD': 1.0, 'MXN': 22.179270763, 'SGD': 1.3711174882, 'AUD': 1.3916272789, 'ILS': 3.40243079, 'KRW': 1189.7029034436, 'PLN': 3.7165766374, 'Base': 'USD', 'Date': '2020-07-31'} to be inserted into file ./data/downloads/sample.csv
+INFO 2020-08-01 17:48:57,500 :: Currency fetch success.
+INFO 2020-08-01 17:48:57,501 :: Application Finished.
