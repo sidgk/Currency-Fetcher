@@ -40,7 +40,7 @@ class CurrencyDownloader():
         else:
             logging.info("File dose not exist in path")
         # Exception handling to gracefuly end the program incase any error occur with the appropriate error message 
-        file_exists_to = os.path.isfile('./results.csv')
+        file_exists_to = os.path.isfile(FILE_SAVE_PATH)
         if file_exists_to:
             logging.info("File is present in the path")
         else:

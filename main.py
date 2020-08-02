@@ -54,6 +54,6 @@ t_first_task = DummyOperator(
     task_id='first_task',
     dag=dag
 )
-t_first_task.set_downstream(convert_currency)
+t_first_task >> convert_currency
 #if __name__ == "__main__":
 #    main()
