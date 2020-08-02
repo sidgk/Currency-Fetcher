@@ -15,13 +15,13 @@ config = ConfigParser()
 url = "https://api.exchangeratesapi.io/latest?base=USD"
 PIPELINE_ID = 1
 
-start_date = datetime(2020, 7, 31)
+start_date = datetime(2020, 7, 12)
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
     'start_date': start_date,
-    'email': ['sidgk248@gmail.com'],
+   # 'email': ['sidgk248@gmail.com'],
     'email_on_failure': True,
     'email_on_retry': False,
     'retries': 0,
@@ -30,8 +30,9 @@ default_args = {
 
 dag = DAG(
     dag_id='currency_api_fetch_dag',
-    schedule_interval="0 23 * * *",
-    default_args=default_args)
+    schedule_interval="0 * * * *",
+    default_args=default_args,
+    catchup=True)
 
 
 def downloadfile():

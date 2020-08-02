@@ -65,8 +65,8 @@ class CurrencyDownloader():
                     logging.info("Latest currency {} to be inserted into file {}".format(row,FILE_SAVE_PATH))
                     writer.writerow(row)
                     logging.info("Currency fetch success.")
-            except FileNotFoundError as err:
-                logging.error('Trying to download file {}'.format(str(err)))
+           # except FileNotFoundError as err:
+               # logging.error('Trying to download file {}'.format(str(err)))
             except Exception as err:
                 logging.error('Downloading file failed due to {}'.format(str(err)))
 
