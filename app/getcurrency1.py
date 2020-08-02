@@ -8,7 +8,7 @@ import requests
 import urllib3
 import datetime as dt
 
-FILE_SAVE_PATH = "results.csv"
+FILE_SAVE_PATH = "/home/ec2-user/airflow/results.csv"
 
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
@@ -35,8 +35,16 @@ class CurrencyDownloader():
         response = None
         logging.info("Data will be downloaded into {}".format(FILE_SAVE_PATH))
         file_exists = os.path.isfile(FILE_SAVE_PATH)
-    
+        if file_exists:
+            logging.info("File is present in the path")
+        else:
+            logging.info("File dose not exist in path")
         # Exception handling to gracefuly end the program incase any error occur with the appropriate error message 
+        file_exists_to = os.path.isfile('./results.csv')
+        if file_exists_to:
+            logging.info("File is present in the path")
+        else:
+            logging.info("File dose not exist in path")
         try:
             response = requests.get(self.url).json()
         except requests.exceptions.ConnectionError as err:
@@ -65,8 +73,8 @@ class CurrencyDownloader():
                     logging.info("Latest currency {} to be inserted into file {}".format(row,FILE_SAVE_PATH))
                     writer.writerow(row)
                     logging.info("Currency fetch success.")
-            except FileNotFoundError as err:
-                logging.error('Trying to download file {}'.format(str(err)))
+           # except FileNotFoundError as err:
+               # logging.error('Trying to download file {}'.format(str(err)))
             except Exception as err:
                 logging.error('Downloading file failed due to {}'.format(str(err)))
 
@@ -74,21 +82,5 @@ class CurrencyDownloader():
         self.checkURL()
         self.downloadData()
 
-# 
-
 #checkAndDownloadData()
 
-'''convert_currency =  PythonOperator(
-    task_id='load_currency_to_CSV',
-    python_callable=checkAndDownloadData,
-    dag=dag)
-#Created dummy task to explain Dependencies section.
-t_first_task = DummyOperator(
-    task_id='first_task',
-    dag=dag
-)'''
-# Dependencies, Tell airflow the order of execution
-# set_upstream() : task execution happens from right to left
-# set_downstream() : task execution happens from left to right, as described below. Meaning first t_first_task will execute and followed by convert_currency task
- 
-#t_first_task.set_downstream(convert_currency)

@@ -3,7 +3,7 @@ from os.path import dirname
 sys.path.append(dirname(__file__))
 import logging
 from configparser import ConfigParser
-from app.getcurrency import CurrencyDownloader
+from app.getcurrency1 import CurrencyDownloader
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
