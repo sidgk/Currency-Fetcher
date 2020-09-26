@@ -1,9 +1,8 @@
-# Babbel Data Engineering Challenge
-
-### Why did i Learn from this project.
-
-_I found it facinating to work with the assigned task_
-
+# Working with API's
+Write a Python application that fetches
+conversion rates for USD hourly, and appends them to a CSV file for further analysis. The structure of
+the dataset should ease the purpose of our data scientist and will be decided by you. You can use
+the API at https://exchangeratesapi.io/ 
 ## Prerequisites
 
 ```
@@ -36,4 +35,3 @@ There are 5 files in the main folder
 **I have used MySql as the database as i had it installed locally. It can be replaced with inmemory database like SqLite also.**
 
 
- # airflow-babbel
